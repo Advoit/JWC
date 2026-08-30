@@ -1,0 +1,277 @@
+:root {
+  /* Design-System: minimalistisch, flat, Apple-like, Akzent grün */
+  --color-accent: #32563b;
+  --color-accent-dark: #27452e;
+  --color-accent-soft: #e9f0eb;
+  --color-bg: #f5f5f7;
+  --color-surface: #ffffff;
+  --color-border: #e5e5ea;
+  --color-text: #1c1c1e;
+  --color-text-muted: #6e6e73;
+  --color-danger: #ff3b30;
+  --color-danger-soft: #ffe9e8;
+  --color-warning: #ff9500;
+
+  /* Rollen: Leiter = dunkler Akzent, Stellvertreter = heller Akzent */
+  --role-leader-bg: #27452e;
+  --role-leader-fg: #ffffff;
+  --role-deputy-bg: #c9e3d0;
+  --role-deputy-fg: #1c3d26;
+
+  /* Grün-Verlauf der Desktop-Sidebar (helles Theme) */
+  --sidebar-start: #32563b;
+  --sidebar-end: #27452e;
+
+  /* Transluzente Leisten (Mobile-Nav) */
+  --bar-bg: rgba(255, 255, 255, 0.92);
+  --bar-border: var(--color-border);
+
+  --radius: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+  --navbar-height: 64px;
+  --sidebar-width: 264px;
+  --content-max: 860px;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dunkelmodus: wird über <html data-theme="dark"> aktiviert. */
+:root[data-theme='dark'] {
+  --color-accent: #5cbf73;
+  --color-accent-dark: #74d18a;
+  --color-accent-soft: #1e3326;
+  --color-bg: #101012;
+  --color-surface: #1c1c1f;
+  --color-border: #2c2c31;
+  --color-text: #f2f2f7;
+  --color-text-muted: #a1a1a8;
+  --color-danger: #ff453a;
+  --color-danger-soft: #3b2422;
+  --color-warning: #ff9f0a;
+
+  /* Rollen im Dunkelmodus: Leiter dunkler, Stellvertreter heller */
+  --role-leader-bg: #1d3324;
+  --role-leader-fg: #ffffff;
+  --role-deputy-bg: #2c5c3c;
+  --role-deputy-fg: #d9efe0;
+
+  /* Dunklerer Grün-Verlauf für die Sidebar */
+  --sidebar-start: #1d3324;
+  --sidebar-end: #162619;
+
+  --bar-bg: rgba(28, 28, 31, 0.92);
+  --bar-border: #2c2c31;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] body {
+  color-scheme: dark;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ---------- Layout-Helfer ---------- */
+.page {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 24px 20px 96px;
+}
+
+.page--narrow {
+  max-width: 460px;
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.card + .card {
+  margin-top: 16px;
+}
+
+.card-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.card-sub {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+/* ---------- Formulare ---------- */
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.1s, background 0.15s;
+  width: 100%;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-dark);
+}
+
+.btn--secondary {
+  background: var(--color-surface);
+  color: var(--color-accent);
+  border: 1px solid var(--color-border);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-accent);
+}
+
+.btn--block {
+  width: 100%;
+}
+
+.btn[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Hinweistexte ---------- */
+.hint {
+  color: var(--color-text-muted);
+  font-size: 14px;
+}
+
+.notice {
+  background: var(--color-accent-soft);
+  border: 1px solid var(--color-accent);
+  color: var(--color-accent-dark);
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 14px;
+}
+
+.error {
+  background: var(--color-danger-soft);
+  border: 1px solid var(--color-danger);
+  color: var(--color-danger);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 768px) {
+  .page {
+    padding: 40px 32px 96px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .page {
+    padding: 48px 40px 96px;
+  }
+}
+
+/* Kleinere Touch-Targets auf Mobilgeräten */
+@media (max-width: 767px) {
+  .btn {
+    padding: 14px 18px;
+  }
+}

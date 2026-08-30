@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <defs>
+    <linearGradient id="g-light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#32563b" />
+      <stop offset="1" stop-color="#27452e" />
+    </linearGradient>
+    <linearGradient id="g-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d3324" />
+      <stop offset="1" stop-color="#162619" />
+    </linearGradient>
+    <style>
+      .bg { fill: url(#g-light); }
+      @media (prefers-color-scheme: dark) {
+        .bg { fill: url(#g-dark); }
+      }
+    </style>
+  </defs>
+  <rect class="bg" width="192" height="192" rx="42" />
+  <text x="96" y="127" font-family="Arial, Helvetica, sans-serif" font-size="84" font-weight="700" fill="#fff" text-anchor="middle">J</text>
+</svg>
